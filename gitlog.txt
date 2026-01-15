@@ -1,5 +1,0 @@
-commit 01078f5215b9f7d4a565370dee2086ed865a982c
-Author: Cyar12 <www.msiyanamsido@gmail.com>
-Date:   Sun Sep 27 12:17:10 2025 +1300
-
-    Initial commit with hello_world.py
