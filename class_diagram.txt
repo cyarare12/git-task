@@ -1,0 +1,90 @@
+STICKY NOTES APPLICATION - CLASS DIAGRAM
+
++-------------------+
+|       Note        |
++-------------------+
+| - id: int         |
+| - title: str      |
+| - content: str    |
++-------------------+
+| + __str__(): str  |
++-------------------+
+
++-------------------+
+|     NoteForm      |
++-------------------+
+| - title: CharField|
+| - content: TextField|
++-------------------+
+| + is_valid(): bool|
+| + save(): Note    |
++-------------------+
+
++-------------------+
+|  NoteListView     |
++-------------------+
+| - model: Note     |
+| - template_name: str|
+| - context_object_name: str|
+| - ordering: list  |
++-------------------+
+| + get(): HttpResponse|
++-------------------+
+
++-------------------+
+| NoteDetailView    |
++-------------------+
+| - model: Note     |
+| - template_name: str|
++-------------------+
+| + get(): HttpResponse|
++-------------------+
+
++-------------------+
+|  NoteCreateView   |
++-------------------+
+| - model: Note     |
+| - form_class: NoteForm|
+| - template_name: str|
+| - success_message: str|
++-------------------+
+| + get(): HttpResponse|
+| + post(): HttpResponse|
+| + get_success_url(): str|
++-------------------+
+
++-------------------+
+|  NoteUpdateView   |
++-------------------+
+| - model: Note     |
+| - form_class: NoteForm|
+| - template_name: str|
+| - success_message: str|
++-------------------+
+| + get(): HttpResponse|
+| + post(): HttpResponse|
+| + get_success_url(): str|
++-------------------+
+
++-------------------+
+| NoteDeleteView    |
++-------------------+
+| - model: Note     |
+| - template_name: str|
+| - success_url: str|
+| - success_message: str|
++-------------------+
+| + get(): HttpResponse|
+| + post(): HttpResponse|
++-------------------+
+
+Relationships:
+- NoteListView --> Note : uses
+- NoteDetailView --> Note : uses
+- NoteCreateView --> Note : creates
+- NoteCreateView --> NoteForm : uses
+- NoteUpdateView --> Note : updates
+- NoteUpdateView --> NoteForm : uses
+- NoteDeleteView --> Note : deletes
+
+All views inherit from Django's generic views (ListView, DetailView, CreateView, UpdateView, DeleteView)

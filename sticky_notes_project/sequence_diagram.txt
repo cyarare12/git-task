@@ -1,0 +1,41 @@
+Sequence Diagram for Creating a Note
+
+Actors:
+- User
+- Browser
+- Django Application
+- Database
+
+Sequence:
+
+1. User opens browser and navigates to /notes/create/
+2. Browser sends GET request to Django Application
+3. Django Application returns the note creation form
+4. User fills out the form and submits (POST request)
+5. Browser sends POST request with form data to Django Application
+6. Django Application validates the form data
+7. If valid, Django Application creates Note instance
+8. Django Application saves Note to Database
+9. Database confirms save
+10. Django Application redirects to note detail page
+11. Browser requests the detail page
+12. Django Application retrieves Note from Database
+13. Django Application renders detail template
+14. Browser displays the note detail
+
+Text-based Diagram:
+
+User -> Browser: Navigate to /notes/create/
+Browser -> Django: GET /notes/create/
+Django -> Browser: Render form
+User -> Browser: Fill form and submit
+Browser -> Django: POST /notes/create/ with data
+Django -> Django: Validate form
+Django -> Database: Save Note
+Database -> Django: Confirm save
+Django -> Browser: Redirect to /notes/<id>/
+Browser -> Django: GET /notes/<id>/
+Django -> Database: Retrieve Note
+Database -> Django: Return Note
+Django -> Browser: Render detail page
+Browser -> User: Display note

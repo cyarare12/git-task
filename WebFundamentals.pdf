@@ -1,0 +1,63 @@
+# Web Basics
+
+## 1. What is Web 3.0, and how is it different from Web 1.0 and Web 2.0?
+
+Web 3.0 is the next stage in how the internet changes. It is about making the web smarter, spread out, and focused on users. It uses smart computer programs, computers that learn, secure chains of blocks, and data with meaning. In Web 3.0, data is linked and computers can read it. This lets things be more personal, done automatically, and work together across sites. It wants to make the internet more open, safe, and care about privacy. Users have more control over their data.
+
+How it differs from Web 1.0 and Web 2.0:
+- Web 1.0 (1990s-2000s): This was the "only for reading" web. It was made of pages that do not change. Users could only take in info. Sites were like online flyers. No talking back or content made by users. It was in one place, with content made by a few makers.
+- Web 2.0 (2000s-now): This is the "for reading and writing" web. It allows users to join in. Social media, blogs, and working together sites let users make, share, and talk with content. It is more changing and for sharing. But mostly run by large tech firms, with data kept in one place.
+- Web 3.0: Adds to Web 2.0 by putting in smarts and spreading out. It uses AI for personal feels, blockchain for safe and spread data keeping, and meaning tools to make data useful. Unlike Web 2.0, it stresses users owning data and less dependent on one place sites.
+
+## 2. What are the functional differences between the front end of a web application and its back end?
+
+The front end and back end of a web app do different jobs that fit together. They give the full user feel.
+
+- Front End: This is what the user sees, also called the user's side. It has all the user sees and talks with in the browser. Like the design, buttons, forms, and moving pictures. Tools used are HTML (for build), CSS (for looks), and JavaScript (for talking back). The front end deals with user input, shows data, and talks to the back end using special links. Its main job is to give an easy and quick interface for users.
+
+- Back End: This is the server's side of the app. It deals with thinking, working with data, and keeping that help the front end. It has servers, databases, and app thinking that handle asks, do math, manage user logins, and get or save data. Tools often are coding languages like Python, Java, or Node.js, frames, and databases like MySQL or MongoDB. The back end makes sure the app works right, safely, and well. Often hidden from the user.
+
+In short, the front end cares about showing and user talking, while the back end handles data, work rules, and server tasks.
+
+## 3. Using simple words, tell the process that happens from when you type a URL into the address box in your browser until you finally see the page you asked for. Include the HTTP ask-answer cycle in your answer and give a sample of the HTTP ask and answer messages.
+
+When you type a URL into your browser's address box and press enter, many steps happen in the background to get and show the webpage.
+
+First, the browser breaks down the URL to know the domain (like www.example.com). It then does a DNS search to change the domain name into an IP address of the server holding the site. Once it has the IP, the browser sets up a TCP link to the server on the right port (usually 80 for HTTP or 443 for HTTPS).
+
+Next happens the HTTP ask-answer cycle. The browser sends an HTTP ask to the server wanting the thing (like a webpage). The server handles the ask, gets the needed data (maybe from a database), and sends back an HTTP answer with the asked content.
+
+Last, the browser gets the answer, reads the HTML, CSS, and JavaScript, and draws the page on your screen. If there are extra things like pictures or scripts, the browser might do more asks to get them.
+
+Sample of an HTTP ask (GET ask for the main page):
+
+```
+GET / HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+```
+
+Sample of an HTTP answer:
+
+```
+HTTP/1.1 200 OK
+Date: Mon, 05 Oct 2025 08:30:00 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1256
+Connection: keep-alive
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Page</title>
+</head>
+<body>
+    <h1>Welcome to Example.com</h1>
+    <p>This is a sample webpage.</p>
+</body>
+</html>

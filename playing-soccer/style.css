@@ -1,0 +1,51 @@
+body {
+  font-family: Verdana, sans-serif;
+  background-color: #f0f0f0;
+  margin: 20px;
+}
+
+h1 {
+  color: blue;
+  font-size: 2em;
+  text-align: center;
+}
+
+h2 {
+  color: green;
+  font-size: 1.5em;
+}
+
+p {
+  color: black;
+  text-align: left;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header, footer {
+  background-color: lightblue;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 10px;
+}
+
+section {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid gray;
+}

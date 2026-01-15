@@ -1,0 +1,15 @@
+CRUD Matrix for Task Manager Application
+
+Entity: Task
+
+| Operation | Create | Read | Update | Delete |
+|-----------|--------|------|--------|--------|
+| Task     |   X    |  X  |   X    |   X    |
+
+Explanation:
+- Create: Add a new task.
+- Read: View task details or list tasks.
+- Update: Modify an existing task.
+- Delete: Remove a task.
+
+All operations are supported for the Task entity.

@@ -1,0 +1,41 @@
+STICKY NOTES APPLICATION - SEQUENCE DIAGRAM
+
+Creating a New Note:
+
+User -> Browser: Click "Create Note" button
+Browser -> Django Server: GET /create/
+Django Server -> NoteCreateView: get()
+NoteCreateView -> Template: Render form
+Template -> Browser: HTML form
+Browser -> User: Display form
+
+User -> Browser: Fill form and submit
+Browser -> Django Server: POST /create/ with form data
+Django Server -> NoteCreateView: post()
+NoteCreateView -> NoteForm: is_valid()
+NoteForm -> NoteCreateView: Valid form
+NoteCreateView -> Note: Create new note
+Note -> Database: Save note
+Database -> Note: Confirmation
+Note -> NoteCreateView: Success
+NoteCreateView -> Browser: Redirect to note detail
+Browser -> Django Server: GET /<note_id>/
+Django Server -> NoteDetailView: get()
+NoteDetailView -> Note: Get note details
+Note -> NoteDetailView: Note data
+NoteDetailView -> Template: Render detail
+Template -> Browser: HTML page
+Browser -> User: Display note details
+
+Viewing All Notes:
+
+User -> Browser: Navigate to home page
+Browser -> Django Server: GET /
+Django Server -> NoteListView: get()
+NoteListView -> Note: Get all notes
+Note -> Database: Query notes
+Database -> Note: Return notes
+Note -> NoteListView: Notes list
+NoteListView -> Template: Render list
+Template -> Browser: HTML page
+Browser -> User: Display notes list

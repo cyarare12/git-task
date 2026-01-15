@@ -1,0 +1,33 @@
+Commands Run:
+- powershell -Command "Invoke-WebRequest -Uri https://httpbin.org/get -Verbose"
+- powershell -Command "Invoke-WebRequest -Uri 'https://httpbin.org/post' -Method Post -ContentType 'application/x-www-form-urlencoded' -Body 'key=value'"
+- powershell -Command "try { Invoke-WebRequest -Uri https://httpbin.org/status/404 -Method Head } catch { $_.Exception.Response }"
+- powershell -Command "try { Invoke-WebRequest -Uri https://httpbin.org/status/403 -Method Head } catch { $_.Exception.Response }"
+
+What I Saw:
+
+1. Simple Request Check:
+   - Output: StatusCode 200, StatusDescription OK, Content JSON with args {}, headers (Host, User-Agent, X-Amzn-Trace-Id), RawContent HTTP/1.1 200 OK with headers like Connection, Access-Control-Allow-Origin, Content-Type application/json.
+   - Headers sent: Host: httpbin.org, User-Agent: Mozilla/5.0..., X-Amzn-Trace-Id.
+   - Headers received: Connection: keep-alive, Access-Control-Allow-Origin: *, Access-Control-Allow-Credentials: true, Content-Length: 302, Content-Type: application/json, Date.
+   - Status code: 200 OK.
+   - How the connection works: Client sends GET request with headers, server checks and sends back 200 with JSON body that shows request details.
+   - Main points: HTTP GET requests get data without sending a body; headers give extra info for request and response; status code shows success.
+
+2. How Methods Work:
+   - Output: StatusCode 200, Content JSON with form {"key": "value"}, headers including Content-Type application/x-www-form-urlencoded.
+   - Unlike GET: GET has no body (0-byte payload), POST has body with data; GET gets info, POST sends info.
+   - Why the payload: To send data to the server, like form inputs.
+   - How it's sent: In the request body, coded as application/x-www-form-urlencoded.
+   - What the server sent back: Server shows the data in the "form" part of the JSON response.
+   - Main points: POST method lets you send data in the body; server can handle and send back the data you sent.
+
+3. Checking Status Codes:
+   - 404: StatusCode NotFound, StatusDescription NOT FOUND, headers like good responses but with error status.
+     - What it means: The thing you asked for is not on the server.
+     - When it happens: Wrong URL, page deleted.
+   - 403: StatusCode Forbidden, StatusDescription FORBIDDEN, headers like that.
+     - What it means: Server got the request but says no because of rules.
+     - Why access is blocked: Need to log in, IP not allowed.
+   - How errors are shown: In the status code and words in the HTTP response headers.
+   - Main points: 4xx codes mean client mistakes; headers still have normal info even for errors.

@@ -1,0 +1,27 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block content %}
+<h2>Checkout</h2>
+<div class="product-card">
+    <h3>Order Summary</h3>
+    {% for product_id, item in cart.items %}
+        <div class="cart-item">
+            <div>
+                <h4>{{ item.name }}</h4>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Price: ${{ item.price }}</p>
+                <p>Subtotal: ${{ "%.2f"|format(item.price|mul:item.quantity) }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="cart-total">
+        <p>Total: ${{ total }}</p>
+    </div>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Click "Complete Order" to finalize your purchase. An invoice will be sent to your email.</p>
+    <button type="submit">Complete Order</button>
+</form>
+{% endblock %}

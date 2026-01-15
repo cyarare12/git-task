@@ -1,0 +1,40 @@
+STICKY NOTES APPLICATION - USE CASE DIAGRAM
+
+Actors:
+- User (Primary Actor)
+
+Use Cases:
+
+1. View All Notes
+   - User can view a list of all their sticky notes
+   - Precondition: User has access to the application
+   - Postcondition: List of notes displayed
+
+2. View Note Details
+   - User can view the full content of a specific note
+   - Precondition: User has selected a note from the list
+   - Postcondition: Full note content displayed
+
+3. Create New Note
+   - User can create a new sticky note
+   - Precondition: User clicks "Create Note" button
+   - Postcondition: New note saved and displayed
+
+4. Edit Existing Note
+   - User can modify an existing note's title and content
+   - Precondition: User selects "Edit" on an existing note
+   - Postcondition: Note updated with new information
+
+5. Delete Note
+   - User can remove a note permanently
+   - Precondition: User selects "Delete" on an existing note
+   - Postcondition: Note removed from system
+
+Relationships:
+- User --(includes)--> View All Notes
+- User --(includes)--> View Note Details
+- User --(includes)--> Create New Note
+- User --(includes)--> Edit Existing Note
+- User --(includes)--> Delete Note
+
+System Boundary: Sticky Notes Web Application

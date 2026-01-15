@@ -1,0 +1,58 @@
+Use Case Diagram for Task Manager Application
+
+Actors:
+- User
+
+Use Cases:
+- Create Task
+- Read Task (View Task Details)
+- Update Task
+- Delete Task
+- List All Tasks
+
+Relationships:
+- User --(Create Task)
+- User --(Read Task)
+- User --(Update Task)
+- User --(Delete Task)
+- User --(List All Tasks)
+
+ASCII Representation:
+
+     +-----------+
+     |   User    |
+     +-----------+
+          |
+          | Create Task
+          v
+     +------------+
+     | Create Task |
+     +------------+
+
+          |
+          | Read Task
+          v
+     +------------+
+     | Read Task  |
+     +------------+
+
+          |
+          | Update Task
+          v
+     +------------+
+     | Update Task|
+     +------------+
+
+          |
+          | Delete Task
+          v
+     +------------+
+     | Delete Task|
+     +------------+
+
+          |
+          | List All Tasks
+          v
+     +------------+
+     |List All Tasks|
+     +------------+

@@ -1,0 +1,5 @@
+GitHub Repository Link for Sticky Notes Application:
+
+https://github.com/username/sticky-notes-django-app
+
+(Note: This is a placeholder link. In a real scenario, you would create a public GitHub repository and upload the project files, excluding the virtual environment folder.)

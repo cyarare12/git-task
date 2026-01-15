@@ -1,0 +1,26 @@
+MVC Responsibilities for Task Manager Application
+
+Models:
+- Definition: Represent the application's data entities and business logic.
+- Responsibilities:
+  - Define the Task class with attributes like id, title, description, status, due_date.
+  - Handle data validation and business rules (e.g., ensure title is not empty).
+  - Interact with data storage (files) for CRUD operations: save, load, update, delete tasks.
+  - Process data received from controllers and return results.
+
+Views:
+- Definition: Handle the user interface and presentation of data.
+- Responsibilities:
+  - Display task lists, forms for creating/editing tasks.
+  - Receive user input (e.g., form submissions).
+  - Render templates with data from controllers.
+  - Provide feedback to users (e.g., success messages).
+
+Controllers:
+- Definition: Act as intermediaries between models and views.
+- Responsibilities:
+  - Receive user requests from views.
+  - Process input and call appropriate model methods.
+  - Handle routing (e.g., which action for create, read, etc.).
+  - Update views with data from models.
+  - Manage application flow and error handling.

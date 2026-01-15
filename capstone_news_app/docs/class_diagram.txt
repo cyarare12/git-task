@@ -1,0 +1,64 @@
+Class Diagram for Task Manager Application
+
+Classes:
+
+Task (Model)
+- Attributes:
+  - id: int (private)
+  - title: string (private)
+  - description: string (private)
+  - status: string (private)  // e.g., "pending", "completed"
+  - due_date: date (private)
+- Methods:
+  + __init__(id, title, description, status, due_date): void
+  + get_details(): dict
+  + update(title, description, status, due_date): void
+
+TaskController
+- Attributes:
+  - model: Task (private)
+  - view: TaskView (private)
+- Methods:
+  + create_task(data): void
+  + read_task(id): Task
+  + update_task(id, data): void
+  + delete_task(id): void
+  + list_tasks(): list
+
+TaskView
+- Attributes: None
+- Methods:
+  + display_tasks(tasks): void
+  + show_form(): void
+  + show_message(message): void
+
+Relationships:
+- TaskController --uses--> Task (association)
+- TaskController --uses--> TaskView (association)
+
+ASCII Representation:
+
++----------------+     +-------------------+
+|     Task       |     |  TaskController   |
++----------------+     +-------------------+
+| - id: int      |     | - model: Task     |
+| - title: str   |     | - view: TaskView  |
+| - desc: str    |     +-------------------+
+| - status: str  |     | + create_task()   |
+| - due_date: date|     | + read_task()    |
++----------------+     | + update_task()   |
+| + __init__()   |     | + delete_task()   |
+| + get_details()|     | + list_tasks()    |
+| + update()     |     +-------------------+
++----------------+             |
+                               | uses
+                               v
+                    +-------------------+
+                    |    TaskView      |
+                    +-------------------+
+                    |                   |
+                    +-------------------+
+                    | + display_tasks() |
+                    | + show_form()     |
+                    | + show_message()  |
+                    +-------------------+

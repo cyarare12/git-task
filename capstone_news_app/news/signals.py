@@ -1,0 +1,1 @@
+# Signals removed as per task requirement to implement logic in views instead

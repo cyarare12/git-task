@@ -1,0 +1,51 @@
+My Database Theory
+
+1. Explain the difference between data and information.
+Data refers to raw, unprocessed facts, figures, or symbols that, on their own, may not have much meaning. For example, the number "42" is a piece of data. Information, on the other hand, is data that has been processed, organised, and given context to provide meaning. If we know that "42" represents the age of a person named John, it becomes information.
+
+2. What is metadata?
+Metadata is data that describes the data. It includes information such as units of measurement, the time period the data represents, or labels. Metadata helps in organising and interpreting data, making it easier to extract meaning from raw data.
+
+3. What is a DBMS, and what are its advantages?
+A Database Management System (DBMS) is a collection of programs that manages the database structure and controls access to the data stored in the database. It serves as an intermediary between the user and the database, receiving all application requests and translating them into the complex operations required to fulfil those requests.
+
+Advantages of a DBMS include:
+- Better data access and security: Manages the database and controls access to data, providing efficient access while enforcing privacy and security policies.
+- Improved data integration: Facilitates access for various end-users, providing a clearer and more integrated view of the organisation’s operations.
+- Smooth data manipulation: Enables quick answers to requests for data manipulation (e.g., reading or updating data).
+- High-quality information: Helps in making quicker and more informed decisions, increasing end-user productivity.
+
+4. Compare and contrast operational databases with analytical databases, and provide an example of each.
+Operational databases (OLTP - Online Transaction Processing) are designed to support the day-to-day operations of an organisation. They store and manage current, detailed data essential for running the business. They are optimised for speed and efficiency in handling frequent updates and retrievals. Example: Inventory management system for a retail store.
+
+Analytical databases (OLAP - Online Analytical Processing) are designed for data analysis and business intelligence. They store historical and aggregated data, optimised for complex queries and reporting to gain insights into trends, patterns, and performance. Example: Data warehouse for a company to analyse sales trends over time.
+
+Comparison: Operational databases focus on real-time, transactional data for daily operations, while analytical databases focus on historical, aggregated data for decision-making. Operational databases handle frequent updates, whereas analytical databases handle complex queries.
+
+5. Explain the types of data and use cases where NoSQL databases are most effective.
+NoSQL databases handle unstructured or semi-structured data, unlike relational databases that require structured data in tables. Types of data include text documents, images, videos, JSON, XML, etc.
+
+NoSQL databases are most effective in use cases involving:
+- Large-scale data with varying structures, such as social media data, IoT sensor data, or big data analytics.
+- High scalability and performance needs, like real-time applications or distributed systems.
+- Flexible schemas that can evolve quickly, such as in agile development or content management systems.
+- Examples: Storing user-generated content in social networks, handling log data in big data platforms, or managing product catalogs with varying attributes.
+
+6. Which DBMS does not require server configuration, and what are the advantages of using it?
+SQLite is the DBMS that does not require server configuration. It is a lightweight, file-based relational database.
+
+Advantages:
+- Simplicity and self-contained nature, ideal for mobile applications, embedded systems, and small-scale projects.
+- No need for server setup, making it easy to deploy and manage.
+- Reliability and speed despite its compact size.
+- Suitable for applications requiring a straightforward, serverless database solution.
+
+7. Explain ACID properties in the context of a DBMS.
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These are properties that ensure data integrity and consistency in database transactions.
+
+- Atomicity: Ensures that a transaction is treated as a single, indivisible unit. Either all operations in the transaction succeed, or none do.
+- Consistency: Ensures that the database remains in a consistent state before and after the transaction. The transaction must follow all defined rules and constraints.
+- Isolation: Ensures that concurrent transactions do not interfere with each other. Each transaction appears to execute in isolation from others.
+- Durability: Ensures that once a transaction is committed, its changes are permanent and survive system failures, such as power outages or crashes.
+
+In the context of a DBMS, ACID guarantees that database transactions are complete, accurate, independent, and permanent, even in the event of system failures. This is particularly important in relational DBMSs for maintaining data reliability.

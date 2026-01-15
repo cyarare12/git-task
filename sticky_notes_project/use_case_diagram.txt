@@ -1,0 +1,39 @@
+Use Case Diagram for Sticky Notes Application
+
+Actors:
+- User
+
+Use Cases:
+- Create Note
+  - User can create a new sticky note with title and content
+- Read Notes
+  - User can view a list of all notes
+  - User can view details of a specific note
+- Update Note
+  - User can edit an existing note's title and content
+- Delete Note
+  - User can delete a note
+
+Relationships:
+- User -- Create Note
+- User -- Read Notes
+- User -- Update Note
+- User -- Delete Note
+
+Diagram Representation (Text-based):
+
++-------------------+
+|       User        |
++-------------------+
+          |
+          |  (includes)
+          v
++-------------------+
+|   CRUD Operations |
++-------------------+
+          |
+          |  (extends)
+          v
++-------------------+     +-------------------+     +-------------------+     +-------------------+
+|   Create Note     |     |   Read Notes      |     |   Update Note     |     |   Delete Note     |
++-------------------+     +-------------------+     +-------------------+     +-------------------+

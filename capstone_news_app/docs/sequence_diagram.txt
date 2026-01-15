@@ -1,0 +1,40 @@
+Sequence Diagram for Task Manager Application
+
+This diagram shows the sequence for creating a new task. The application uses files for data storage.
+
+Actors/Components:
+- User
+- View (UI)
+- Controller
+- Model
+- File (Data Storage)
+
+Sequence for Create Task:
+
+User -> View: Submit create task form (title, description)
+View -> Controller: Handle create request
+Controller -> Model: Create new task
+Model -> File: Save task to file
+File -> Model: Confirm save
+Model -> Controller: Return success
+Controller -> View: Render success message
+View -> User: Display success
+
+ASCII Representation:
+
+User      View      Controller    Model      File
+  |         |           |          |          |
+  | Submit form         |          |          |
+  |-------->|           |          |          |
+  |         | Handle request      |          |
+  |         |---------->|          |          |
+  |         |           | Create task       |
+  |         |           |---------->|          |
+  |         |           |           | Save to file
+  |         |           |           |--------->|
+  |         |           |           |<---------|
+  |         |           |<----------|          |
+  |         |<----------|          |          |
+  |<--------|          |          |          |
+
+Similar sequences for Read, Update, Delete.

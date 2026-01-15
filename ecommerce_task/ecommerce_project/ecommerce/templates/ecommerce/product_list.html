@@ -1,0 +1,78 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block content %}
+<section class="products-section">
+    <div class="container">
+        <h2>All Products</h2>
+        <p class="section-subtitle">Browse our complete collection of amazing products</p>
+
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="product-image">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img">
+                        {% else %}
+                            {% if 'iPhone' in product.name or 'Samsung' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'MacBook' in product.name or 'Gaming Laptop' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Sony WH-1000XM5' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'iPad' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Nintendo' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Jacket' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Sneakers' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Sunglasses' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'T-Shirt' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Jeans' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Sofa' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Dinner Set' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Floor Lamp' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Throw Pillows' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Wall Art' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Yoga Mat' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Dumbbell' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Basketball' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Tennis Racket' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% elif 'Swimming Goggles' in product.name %}
+                                <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=300&h=200&fit=crop" alt="{{ product.name }}" class="product-img">
+                            {% else %}
+                                <img src="https://picsum.photos/300/200?random={{ product.id }}" alt="{{ product.name }}" class="product-img">
+                            {% endif %}
+                        {% endif %}
+                        <div class="product-overlay">
+                            <a href="{% url 'product_detail' product.id %}" class="overlay-btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>{{ product.name }}</h3>
+                        <p class="store-name">{{ product.store.name }}</p>
+                        <p class="product-description">{{ product.description|truncatechars:80 }}</p>
+                        <div class="product-footer">
+                            <span class="price">R{{ product.price }}</span>
+                            <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-btn">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

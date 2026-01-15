@@ -1,0 +1,70 @@
+Database Normalization Answers
+
+1. What is normalisation?
+Normalisation is the process of organising data in a database to reduce redundancy, eliminate data anomalies, and improve data integrity. It involves dividing large tables into smaller, related tables and defining relationships between them to ensure that data is stored efficiently and consistently.
+
+2. When is a table in 1NF?
+A table is in 1NF (First Normal Form) when:
+- All key attributes are defined.
+- There are no repeating groups in the table.
+- All attributes are dependent on the primary key.
+
+3. When is a table in 2NF?
+A table is in 2NF (Second Normal Form) when:
+- It is in 1NF.
+- It includes no partial dependencies; that is, no attribute is dependent on only a portion of the primary key.
+
+4. When is a table in 3NF?
+A table is in 3NF (Third Normal Form) when:
+- It is in 2NF.
+- It contains no transitive dependencies; that is, no non-key attribute is functionally dependent on another non-key attribute.
+
+5. Using the INVOICE table given below, draw its dependency diagram and identify all dependencies (including transitive and partial dependencies). You can assume that the table does not contain any repeating groups and that an invoice number references more than one product. Hint: This table uses a composite primary key.
+
+INVOICE Table:
+- Primary Key: INV_NUM + PROD_NUM (composite)
+- Attributes: INV_NUM, PROD_NUM, SALE_DATE, PROD_LABEL, VEND_CODE, VEND_NAME, QUANT_SOLD, PROD_PRICE
+
+Dependency Diagram Description (text representation):
+- INV_NUM + PROD_NUM -> SALE_DATE, QUANT_SOLD
+- PROD_NUM -> PROD_LABEL, VEND_CODE, PROD_PRICE
+- VEND_CODE -> VEND_NAME
+
+Dependencies:
+- Partial Dependencies: PROD_NUM -> PROD_LABEL, VEND_CODE, PROD_PRICE (depends on part of the composite key)
+- Transitive Dependencies: VEND_CODE -> VEND_NAME (VEND_CODE is non-key, VEND_NAME depends on it)
+
+6. Using the answer to the above question, remove all partial dependencies and draw the new dependency diagrams.
+
+New Tables after removing partial dependencies:
+- INVOICE (INV_NUM, PROD_NUM, QUANT_SOLD, SALE_DATE)
+  - Primary Key: INV_NUM + PROD_NUM
+  - Dependencies: INV_NUM + PROD_NUM -> QUANT_SOLD, SALE_DATE
+- PRODUCT (PROD_NUM, PROD_LABEL, VEND_CODE, PROD_PRICE)
+  - Primary Key: PROD_NUM
+  - Dependencies: PROD_NUM -> PROD_LABEL, VEND_CODE, PROD_PRICE
+- VENDOR (VEND_CODE, VEND_NAME)
+  - Primary Key: VEND_CODE
+  - Dependencies: VEND_CODE -> VEND_NAME
+
+Dependency Diagram Description:
+- INVOICE: INV_NUM + PROD_NUM -> QUANT_SOLD, SALE_DATE
+- PRODUCT: PROD_NUM -> PROD_LABEL, VEND_CODE, PROD_PRICE
+- VENDOR: VEND_CODE -> VEND_NAME
+
+7. Using the answer to the above question, remove all transitive dependencies and draw the new dependency diagrams.
+
+The transitive dependency (VEND_CODE -> VEND_NAME) has already been removed by separating the VENDOR table in step 6. The tables are now in 3NF.
+
+Final Tables:
+- INVOICE (INV_NUM, PROD_NUM, QUANT_SOLD, SALE_DATE)
+  - Primary Key: INV_NUM + PROD_NUM
+  - Dependencies: INV_NUM + PROD_NUM -> QUANT_SOLD, SALE_DATE
+- PRODUCT (PROD_NUM, PROD_LABEL, VEND_CODE, PROD_PRICE)
+  - Primary Key: PROD_NUM
+  - Dependencies: PROD_NUM -> PROD_LABEL, VEND_CODE, PROD_PRICE
+- VENDOR (VEND_CODE, VEND_NAME)
+  - Primary Key: VEND_CODE
+  - Dependencies: VEND_CODE -> VEND_NAME
+
+Dependency Diagram Description (same as above, now in 3NF).

@@ -1,0 +1,47 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}Help - Twitter Integration{% endblock %}
+
+{% block content %}
+<h2>Twitter Integration Help</h2>
+
+<p>This guide will help you set up Twitter integration for automated social media posts from your online store.</p>
+
+<h3>Step 1: Create Twitter Developer Account</h3>
+<ul>
+    <li>Go to <a href="https://developer.twitter.com/" target="_blank">Twitter Developer Portal</a></li>
+    <li>Sign in with your Twitter account</li>
+    <li>Click "Create Project" or "Create App"</li>
+    <li>Fill in your project details:
+        <ul>
+            <li>Project Name: Your Store Name + "eCommerce"</li>
+            <li>Use Case: "Building tools to engage with my audience"</li>
+            <li>Description: "Automated social media posts for my online store"</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Step 2: Get API Credentials</h3>
+<ul>
+    <li>In your Twitter Developer Dashboard, go to "Projects & Apps"</li>
+    <li>Select your app</li>
+    <li>Go to "Keys and Tokens" tab</li>
+    <li>Copy these credentials:
+        <ul>
+            <li>API Key (Consumer Key)</li>
+            <li>API Key Secret (Consumer Secret)</li>
+            <li>Access Token (if not generated, click "Generate")</li>
+            <li>Access Token Secret</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Step 3: Configure Your Store</h3>
+<ul>
+    <li>Contact the platform administrator with your Twitter credentials</li>
+    <li>They will configure the integration for your store</li>
+    <li>Once configured, your store will automatically post to Twitter when you create new stores or products</li>
+</ul>
+
+<p><strong>Note:</strong> Twitter integration allows your store to automatically share new store openings and product additions on Twitter, helping to increase visibility and engagement.</p>
+{% endblock %}

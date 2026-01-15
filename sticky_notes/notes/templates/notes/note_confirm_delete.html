@@ -1,0 +1,17 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Delete Note{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Delete Note</h2>
+  <p style="font-size: 1.1em; margin-bottom: 30px; color: #34495e;">Are you sure you want to delete "<strong>{{ note.title }}</strong>"? This action cannot be undone.</p>
+  <div style="display: flex; gap: 15px; justify-content: center;">
+    <form method="post" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger" style="padding: 12px 24px;">Yes, Delete</button>
+    </form>
+    <a href="{% url 'note_detail' note.pk %}" class="btn btn-secondary" style="padding: 12px 24px;">Cancel</a>
+  </div>
+</div>
+{% endblock %}
